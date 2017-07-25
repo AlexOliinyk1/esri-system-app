@@ -18,7 +18,7 @@ esriSystem.register(
   // optional callback function
   function() {
     // then bootstrap application
-    System.import('app/boot')
+    System.import('main')
       .then(null, console.error.bind(console));
   },
 

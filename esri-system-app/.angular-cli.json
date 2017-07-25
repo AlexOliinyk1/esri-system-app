@@ -22,9 +22,7 @@
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/systemjs/dist/system.src.js",
-        "../node_modules/esri-system-js/dist/esriSystem.js",
-        "load.js"
+  
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>EsriSystemApp</title>
@@ -7,12 +8,50 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://js.arcgis.com/3.20/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.20/dijit/themes/claro/claro.css">
   <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
 </head>
+
 <body>
-  
+
+  <!-- load SystemJS library -->
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+  <!-- load Esri library -->
+  <link rel="stylesheet" href="//js.arcgis.com/4.0/esri/css/main.css">
+  <!--<script src="//js.arcgis.com/4.0/"></script>-->
   <script src="https://js.arcgis.com/3.21/init.js"></script>
+
+  <!-- load esri-system-js library -->
+  <script src="node_modules/esri-system-js/dist/esriSystem.js"></script>
   <app-root></app-root>
+  <script>
+    // configure system.js
+    System.config({
+      packages: {
+        app: {
+          defaultExtension: 'js'
+        }
+      }
+    });
+
+    // load esri modules needed by this application
+    // and then regsiter each as it's own SystemJS module
+    esriSystem.register(
+      // array of Esri module names to load and then register with SystemJS
+      [
+        'esri/map',
+
+      ],
+
+      // optional callback function
+      function () {
+        // then bootstrap application
+        System.import('main')
+          .then(null, console.error.bind(console));
+      });
+
+  </script>
 </body>
+
 </html>
