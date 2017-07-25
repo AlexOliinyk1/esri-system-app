@@ -12,10 +12,7 @@ System.config({
 esriSystem.register(
   // array of Esri module names to load and then register with SystemJS
   [
-    'esri/Map',
-    'esri/views/MapView',
-    'esri/widgets/Home/HomeViewModel',
-    'esri/request'
+    'esri/map'
   ],
 
   // optional callback function
